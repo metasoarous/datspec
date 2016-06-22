@@ -21,3 +21,6 @@ datomic/
 libs/datsync
 libs/
 Session.vim
+.ideao
+*.iml
+.idea
