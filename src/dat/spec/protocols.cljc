@@ -8,18 +8,21 @@
 ;; system/architecture as a whole more modular.
 ;; Hopefully, this will all then play nicely with things like Arachne as well :-)
 
-;; Here's how component dependencies break down:
+;; Here's how the abstract system component dependencies break down:
 
-;;                  DatView
-;;                /   |    \
+;;                _Datsync _
 ;;               /    |     \
-;;              /     |      \
-;;             /  DatReactor  \
-;;            /   / /  \   \   \
-;;           /  /'  |  |    '\  \
-;;          / /'    |  |      '\ \
-;;         //'      |  History  '\\
-;;        /'        \  |          '\
+;;              /     |       \
+;;             /   Datreactor   \
+;;            /   /   |    \     \
+;;            /  /    |     \     \
+;;           /  /     |      \     \
+;;          /  /  DatviewApp  \    \
+;;         /  /   / /  \   \   \    \
+;;         / /  /'  |  |    '\  \    \
+;;        / / /'    |  |      '\ \   \
+;;        ///'      |  History  '\\  \                 ;; history is future
+;;        /'        \  |          '\ \
 ;;     Remote       Conn     Dispatcher
 
 ;; Datview has to expose the comms and the dispatcher to some extent.
