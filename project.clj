@@ -7,7 +7,7 @@
   :dependencies [[org.clojure/clojure "1.9.0-alpha6"]
                  [org.clojure/clojurescript "1.9.36"]]
   :cljsbuild {:builds [{:id "release"
-                        :source-paths ["src" "bench/src"]
+                        :source-paths ["src"]
                         :assert false
                         :compiler {:output-to     "release-js/datspec.bare.js"
                                    :optimizations :advanced
@@ -16,11 +16,11 @@
                                    :output-wrapper false 
                                    :parallel-build true}}]}
                         ;:notify-command ["release-js/wrap_bare.sh"]
-  :profiles {:dev {:source-paths ["bench/src" "test" "dev" "src"]
+  :profiles {:dev {:source-paths ["test" "dev" "src"]
                    :plugins [[lein-cljsbuild "1.1.2"]
                              [lein-typed "0.3.5"]]
                    :cljsbuild {:builds [{:id "advanced"
-                                         :source-paths ["src" "bench/src" "test"]
+                                         :source-paths ["src" "test"]
                                          :compiler {:output-to     "target/datspec.js"
                                                     :optimizations :advanced
                                                     :source-map    "target/datspec.js.map"
@@ -28,7 +28,7 @@
                                                     :recompile-dependents false
                                                     :parallel-build true}}
                                         {:id "none"
-                                         :source-paths ["src" "bench/src" "test" "dev"]
+                                         :source-paths ["src" "test" "dev"]
                                          :compiler {:main          datspec.test
                                                     :output-to     "target/datspec.js"
                                                     :output-dir    "target/none"
