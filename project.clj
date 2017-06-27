@@ -7,16 +7,16 @@
   :dependencies [[org.clojure/clojure "1.9.0-alpha6"]
                  [org.clojure/clojurescript "1.9.36"]]
   :cljsbuild {:builds [{:id "release"
-                        :source-paths ["src"]
+                        :source-paths ["src/cljs" "src/cljc"]
                         :assert false
                         :compiler {:output-to     "release-js/datspec.bare.js"
                                    :optimizations :advanced
                                    :pretty-print  false
                                    :elide-asserts true
-                                   :output-wrapper false 
+                                   :output-wrapper false
                                    :parallel-build true}}]}
                         ;:notify-command ["release-js/wrap_bare.sh"]
-  :profiles {:dev {:source-paths ["test" "dev" "src"]
+  :profiles {:dev {:source-paths ["test" "dev" "src/clj" "src/cljc"]
                    :plugins [[lein-cljsbuild "1.1.2"]
                              [lein-typed "0.3.5"]]
                    :cljsbuild {:builds [{:id "advanced"
@@ -28,7 +28,7 @@
                                                     :recompile-dependents false
                                                     :parallel-build true}}
                                         {:id "none"
-                                         :source-paths ["src" "test" "dev"]
+                                         :source-paths ["src/cljs" "src/cljc" "test" "dev"]
                                          :compiler {:main          datspec.test
                                                     :output-to     "target/datspec.js"
                                                     :output-dir    "target/none"
@@ -43,7 +43,7 @@
   ;; ## Back to from extraction...
   ;; =============================
   ;;
-  ;; Once we're ready 
+  ;; Once we're ready
   ;:core.typed {:check []
                ;:check-cljs []}
   ;; Don't need resources for now
