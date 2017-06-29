@@ -93,8 +93,8 @@
 ;; ### Sending events
 
 (defprotocol PRemoteSendEvent
-  "The abstract ability to send a event to a server"
-  (send-event! [this event]))
+  "When no peer-id is provided, broadcast to all peers/clients/users or send to server if running as client. Otherwise send to a specific peer/client/user"
+  (send-event! [this event] [this peer-id event]))
 
 ;; ### Recieving events
 
