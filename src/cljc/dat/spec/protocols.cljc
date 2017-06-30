@@ -128,7 +128,7 @@
 
 (defprotocol PDispatcher
   "This is where"
-  (dispatch! [this event level]
+  (dispatch! [this event] [this event level]
     "Recieves data from calls to dispatch and pipes through to a channel, from which events can be taken.
     The semantics of how different levels and events are handled differently as far as priority is entire up to you.")
   (dispatcher-event-chan [this]))
