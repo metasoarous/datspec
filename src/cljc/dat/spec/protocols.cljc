@@ -133,6 +133,31 @@
     The semantics of how different levels and events are handled differently as far as priority is entire up to you.")
   (dispatcher-event-chan [this]))
 
+(defprotocol PKabel
+  "Abstract representation of a wire."
+  (recv-chan [this])
+  (send-chan [this])
+;;   (pipeline! [this xf & options])
+;;   (middleware! [this middleware])
+  )
+
+(defn wire [kabel]
+  [(recv-chan kabel) (send-chan kabel)])
+
+(defprotocol PRingSock
+  (sock-route [this])
+  (sock-get [this])
+  (sock-post [this]))
+
+;; (defn pipeline [xf]
+;;   (fn [[S peer [in> out>]]]
+;;     (let [pipe-in> (async/chan 1 xf)]
+;;       (go-loop-try []
+;;         (let [in (superv/<? S in>)]
+;;           (superv/>? S pipe-in> in))
+;;         (recur))
+;;       [S peer [pipe-in> out>]])))
+
 ;; This will be a requirement for both Datview and Datsync.
 ;; And both may abstract over the dependency behavior using this protocol as well.
 
