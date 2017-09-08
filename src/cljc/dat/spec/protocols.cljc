@@ -164,11 +164,3 @@
 (defprotocol PReactor)
 
 
-;; ## Datomic
-(defprotocol PTransactor
-  "Transaction to datomic, datascript, possibly other database like things."
-  (transact! [this txs] [this txs tx-meta])
-  (bootstrap [this])
-  (tx-report-chan [this]))
-
-
