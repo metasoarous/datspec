@@ -1,4 +1,4 @@
-(defproject datspec "0.0.1-alpha1-SNAPSHOT"
+(defproject datspec "0.0.1-alpha3-SNAPSHOT"
   :description "Protocols and specs for the Datsys architecture - the shape of things."
   :url "http://github.com/metasoarous/datspec"
   :license {:name "Eclipse Public License"
